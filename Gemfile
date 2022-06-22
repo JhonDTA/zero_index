@@ -52,6 +52,8 @@ gem 'bootsnap', require: false
 
 # Use Devise for authentication
 gem 'devise'
+gem 'devise-argon2'
+gem 'devise-encryptable'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
