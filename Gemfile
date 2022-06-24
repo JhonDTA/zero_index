@@ -77,3 +77,8 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+group :production do
+  # Use MailGun for sending emails
+  gem 'mailgunner'
+end
