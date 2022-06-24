@@ -72,7 +72,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'zeroindex.herokuapp.com' }
   config.action_mailer.delivery_method = :mailgun
-  config.action_mailer.mailgun_settings = { host: 'zeroindex.herokuapp.com' }
+  config.action_mailer.mailgun_settings = { domain: 'zeroindex.herokuapp.com' }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
