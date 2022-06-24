@@ -31,3 +31,7 @@
 
 en:
   hello: "Hello world"
+  client:
+    created: "Client was successfully created."
+    updated: "Client was successfully updated."
+    destroyed: "Client was successfully destroyed."

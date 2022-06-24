@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   end
 
   devise_for :users, controllers: { registrations: 'registrations' }
+  resources :clients
 end
