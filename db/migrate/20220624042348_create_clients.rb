@@ -10,7 +10,8 @@ class CreateClients < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-    
+
+    add_index :clients, :name
     add_index :clients, :phone_number, unique: true
     add_index :clients, :email
   end
