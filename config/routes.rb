@@ -6,5 +6,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'static_pages#home'
 
-  devise_for :users
+  devise_scope :user do
+    # Redirects signing out users back to sign-in
+    get 'users', to: 'devise/sessions#new'
+  end
+
+  devise_for :users, controllers: { registrations: 'registrations' }
 end
