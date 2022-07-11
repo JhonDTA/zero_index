@@ -4,12 +4,13 @@ require 'active_support/core_ext/integer/time'
 
 def configure_mailer
   ActionMailer::Base.smtp_settings = {
-    port: ENV.fetch('MAILGUN_SMTP_PORT', nil),
-    address: ENV.fetch('MAILGUN_SMTP_SERVER', nil),
-    user_name: ENV.fetch('MAILGUN_SMTP_LOGIN', nil),
-    password: ENV.fetch('MAILGUN_SMTP_PASSWORD', nil),
-    domain: 'zeroindex.herokuapp.com',
-    authentication: :plain
+    port: ENV.fetch('SENDGRID_PORT', nil),
+    address: ENV.fetch('SENDGRID_SERVER', nil),
+    user_name: ENV.fetch('SENDGRID_USERNAME', nil),
+    password: ENV.fetch('SENDGRID_PASSWORD', nil),
+    domain: ENV.fetch('SENDGRID_DOMAIN', nil),
+    authentication: :plain,
+    enable_starttls_auto: true
   }
   ActionMailer::Base.delivery_method = :smtp
 end
