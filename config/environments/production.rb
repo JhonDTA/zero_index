@@ -4,13 +4,12 @@ require 'active_support/core_ext/integer/time'
 
 def configure_mailer
   ActionMailer::Base.smtp_settings = {
-    port: ENV.fetch('SENDGRID_PORT', nil),
-    address: ENV.fetch('SENDGRID_SERVER', nil),
-    user_name: ENV.fetch('SENDGRID_USERNAME', nil),
-    password: ENV.fetch('SENDGRID_PASSWORD', nil),
-    domain: ENV.fetch('SENDGRID_DOMAIN', nil),
-    authentication: :plain,
-    enable_starttls_auto: true
+    port: ENV.fetch('MAILGUN_SMTP_PORT', nil),
+    address: ENV.fetch('MAILGUN_SMTP_SERVER', nil),
+    user_name: ENV.fetch('MAILGUN_SMTP_LOGIN', nil),
+    password: ENV.fetch('MAILGUN_SMTP_PASSWORD', nil),
+    domain: ENV.fetch('APP_DOMAIN', nil),
+    authentication: :plain
   }
   ActionMailer::Base.delivery_method = :smtp
 end
@@ -83,7 +82,7 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = true
 
-  config.action_mailer.default_url_options = { host: 'zeroindex.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: ENV.fetch('APP_DOMAIN', nil) }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
